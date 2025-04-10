@@ -14,7 +14,7 @@
           - acls
       register: result
 
-    # - name: Set stats variable with acl info
-    #   ansible.builtin.set_stats:
-    #     data:
-    #       acl_data: "{{ result.ansible_facts.ansible_network_resources.acls }}"
+    - name: Set stats variable with acl info
+      ansible.builtin.set_stats:
+        data:
+          acl_data: "{{ result.ansible_facts.ansible_network_resources.acls }}"
