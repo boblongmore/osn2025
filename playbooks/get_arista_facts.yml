@@ -16,4 +16,4 @@
 
     - name: Print gather info
       ansible.builtin.debug:
-        msg: "{{ result }}"
+        msg: "{{ result.ansible_facts }}"
