@@ -16,4 +16,4 @@
 
     - name: Print gather info
       ansible.builtin.debug:
-        msg: "{{ result.ansible_facts }}"
+        msg: "{{ result.ansible_facts.ansible_network_resources }}"
