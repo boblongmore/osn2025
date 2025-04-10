@@ -1,0 +1,19 @@
+---
+
+- name: Gather facts from network devices
+  hosts: "{{ dut | default('eda-sw100') }}"
+  gather_facts: false
+
+  tasks:
+    - name: Gather ACL info from arista switch
+      arista.eos.eos_facts:
+        gather_subset:
+          - '!all'
+          - '!min'
+        gather_network_resources:
+          - acls
+      register: result
+
+    - name: Print gather info
+      ansible.builtin.debug:
+        msg: "{{ result }}"
