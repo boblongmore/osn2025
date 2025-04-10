@@ -15,5 +15,6 @@
       register: result
 
     - name: Print gather info
-      ansible.builtin.debug:
-        msg: "{{ result.ansible_facts.ansible_network_resources }}"
+      ansible.builtin.set_stats:
+        data:
+          acl_data: "{{ result.ansible_facts.ansible_network_resources.acls }}"
