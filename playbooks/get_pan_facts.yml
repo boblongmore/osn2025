@@ -1,0 +1,13 @@
+---
+
+- name: Gather facts from network devices
+  hosts: pa-fw01
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Gather Info for PANOS VM
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ fw01_provider }}"
+        state: gathered
+      register: result
