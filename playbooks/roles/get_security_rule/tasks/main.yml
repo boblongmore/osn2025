@@ -9,3 +9,7 @@
 - name: Print gathered facts- PANOS VM
   debug:
     msg: "{{ result }}"
+- name: Set stats with acl info
+  ansible.builtin.set_stats:
+    data:
+      acl_data: "{{ result.gathered }}"
