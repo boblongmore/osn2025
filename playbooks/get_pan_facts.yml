@@ -6,13 +6,6 @@
   connection: local
 
   tasks:
-    - name: Gather Info for PANOS VM
-      paloaltonetworks.panos.panos_security_rule:
-        provider: "{{ fw01_provider }}"
-        gathered_filter: "*"
-        state: gathered
-      register: result
-
-    - name: Print gathered facts- PANOS VM
-      debug:
-        msg: "{{ result }}"
+    - name: Include role to gather PAN-OS facts
+      include_role:
+        name: get_security_rule

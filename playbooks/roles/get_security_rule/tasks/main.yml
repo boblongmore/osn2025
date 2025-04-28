@@ -1,0 +1,11 @@
+---
+- name: Gather Info for PANOS VM
+  paloaltonetworks.panos.panos_security_rule:
+    provider: "{{ fw01_provider }}"
+    gathered_filter: "*"
+    state: gathered
+  register: result
+
+- name: Print gathered facts- PANOS VM
+  debug:
+    msg: "{{ result }}"
