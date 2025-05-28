@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/devcontainers/python:3.9
+FROM mcr.microsoft.com/devcontainers/python:3.12
 
 WORKDIR /development
 
 RUN apt-get update && \
-    apt-get install -y git 
+    apt-get install -y git
 
 COPY requirements.txt requirements.txt
 COPY requirements.yml requirements.yml
